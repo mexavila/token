@@ -4,14 +4,11 @@
 
 This repository uses a GitHub Personal Access Token for syncing design tokens from Figma using Tokens Studio.
 
-### Using the Provided Token
+### Using the Personal Access Token
 
-The token for this repository is:
-```
-pat_7de4a21b_aca7_4da5_8484_6ad9069b7013
-```
+The Personal Access Token for this repository should be obtained from the repository owner or project administrator. For security reasons, it is not stored in this repository.
 
-**Important**: This token should be kept secure and only used within Tokens Studio for Figma.
+**Important**: The token should be kept secure and only used within Tokens Studio for Figma. Never commit tokens to the repository.
 
 ### Configuring Tokens Studio
 
@@ -20,7 +17,7 @@ pat_7de4a21b_aca7_4da5_8484_6ad9069b7013
 3. Click "Add new" and select "GitHub"
 4. Enter the following details:
    - **Name**: Token Repository (or any name you prefer)
-   - **Personal Access Token**: `pat_7de4a21b_aca7_4da5_8484_6ad9069b7013`
+   - **Personal Access Token**: `<YOUR_PAT_TOKEN>` (obtain from repository owner)
    - **Repository**: `mexavila/token`
    - **Branch**: `main`
    - **File Path**: `tokens/tokens.json`

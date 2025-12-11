@@ -5,6 +5,9 @@ package-lock.json
 # Build output
 build/
 
+# Secrets
+PAT_TOKEN.txt
+
 # IDE
 .vscode/
 .idea/
