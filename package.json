@@ -1,0 +1,20 @@
+{
+  "name": "token",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Design token repository with Tokens Studio integration",
+  "main": "index.js",
+  "scripts": {
+    "build:tokens": "node style-dictionary.config.js"
+  },
+  "keywords": [
+    "design-tokens",
+    "tokens-studio"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tokens-studio/sd-transforms": "^1.2.12",
+    "style-dictionary": "^4.0.0"
+  }
+}

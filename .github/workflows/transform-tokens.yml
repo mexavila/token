@@ -1,0 +1,47 @@
+name: Transform Tokens Studio Design Tokens
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'tokens/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'tokens/**'
+
+jobs:
+  build-tokens:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build tokens with Style Dictionary
+        run: npm run build:tokens
+
+      - name: Commit transformed tokens
+        if: github.event_name == 'push'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'actions@github.com'
+          git add build/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update transformed design tokens"
+            git push
+          fi
