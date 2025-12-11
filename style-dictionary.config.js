@@ -1,11 +1,12 @@
-const { registerTransforms } = require('@tokens-studio/sd-transforms');
-const StyleDictionary = require('style-dictionary');
+import { register } from '@tokens-studio/sd-transforms';
+import StyleDictionary from 'style-dictionary';
 
 // Register the Tokens Studio transforms
-registerTransforms(StyleDictionary);
+register(StyleDictionary);
 
-module.exports = {
+const sd = new StyleDictionary({
   source: ['tokens/**/*.json'],
+  preprocessors: ['tokens-studio'],
   platforms: {
     css: {
       transformGroup: 'tokens-studio',
@@ -28,4 +29,7 @@ module.exports = {
       ],
     },
   },
-};
+});
+
+await sd.cleanAllPlatforms();
+await sd.buildAllPlatforms();
